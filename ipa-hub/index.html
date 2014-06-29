@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+	<body>
+		<h1>IPA HUB</h1>
+		<form action="/upload" enctype="multipart/form-data" method="post">
+          <div>name: <input name="name"/></div>
+          <div>version: <input name="version"/></div>
+          <div>bundle_id: <input name="bundle_id"/></div>
+          <div><input type="file" name="ipa"/></div>
+          <input type="submit" value="upload"></form>
+		</form>
+	</body>
+</html>
+{% endautoescape %}
