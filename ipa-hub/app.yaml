@@ -21,3 +21,5 @@ libraries:
 - name: jinja2
   version: latest
   
+inbound_services:
+- warmup
