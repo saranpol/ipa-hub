@@ -78,8 +78,8 @@ class Upload(blobstore_handlers.BlobstoreUploadHandler):
         # except Exception, e:  # pylint: disable=broad-except
         #     self.response.write('There was an error running!')
         # else:
-        #     self.response.write('http://ipa-hub.appspot.com/ipa?key='+k)
-        self.response.write('http://ipa-hub.appspot.com/ipa?key='+k)
+        #     self.response.write('https://ipa-hub.appspot.com/ipa?key='+k)
+        self.response.write('https://ipa-hub.appspot.com/ipa?key='+k)
 
 class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, resource):
@@ -113,9 +113,9 @@ class Plist(webapp2.RequestHandler):
         template_values = {'name':e.name,
         'bundle_id':e.bundle_id,
         'version':e.version,
-        'file_url':'http://ipa-hub.appspot.com/get_file?key='+e.bundle_id+'_'+e.version}
+        'file_url':'https://ipa-hub.appspot.com/get_file?key='+e.bundle_id+'_'+e.version}
         if (e.blob_info_key) :
-            template_values['file_url'] = 'http://ipa-hub.appspot.com/serve/' + e.blob_info_key
+            template_values['file_url'] = 'https://ipa-hub.appspot.com/serve/' + e.blob_info_key
         template = JINJA_ENVIRONMENT.get_template('ipa.plist')
         self.response.headers['Content-Type'] = "text/plain"
         self.response.write(template.render(template_values))
